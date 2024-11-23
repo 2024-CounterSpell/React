@@ -34,6 +34,28 @@
     justify-content: center;
 }
 
+.user_wrap img {
+    animation: move 2s infinite ease;
+}
+
+@keyframes move {
+    0% {
+        margin-top: -10px;
+    }
+
+    25% {
+        margin-top: 0px;
+    }
+
+    50% {
+        margin-top: 10px;
+    }
+
+    100% {
+        margin-top: 0px;
+    }
+}
+
 .user {
     width: 100px;
     height: 100px;
@@ -42,6 +64,16 @@
 .username {
     font-size: 20px;
     font-weight: bold;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #E6E6E6;
+    text-align: center;
+    color: #5b5b5b;
+    width: 30%;
+}
+
+.username:hover, .username:focus {
+    color: black;
 }
 
 .control_wrap {

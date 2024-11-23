@@ -1,14 +1,31 @@
+import { useEffect, useState } from "react";
 import "../Styles/Home.css";
 import UserImage from "../assets/imgs/user.png";
 import GlobalFooter from "./Footer";
 
 const UserInfo = () => {
+    const [username, setUsername] = useState("Guest");
+    
+    const getUsernameFromLocalStorage = () => {
+        setUsername(localStorage.getItem("username"));
+    }
+
+    useEffect(() => {
+        getUsernameFromLocalStorage();
+    }, []);
+
+    const changeUsername = ({target}) => {
+        const { value } = target;
+        setUsername(value);
+        localStorage.setItem("username", value);
+    }
+
   return (
     <div className="userinfo">
       <div className="user_wrap">
         <img src={UserImage} alt="User Image" className="user" />
       </div>
-      <p className="username">Guest</p>
+        <input type="text" className="username" value={username} onChange={changeUsername}/>
     </div>
   );
 };
