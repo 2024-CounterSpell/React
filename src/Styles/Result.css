@@ -1,0 +1,47 @@
+.result_wrap {
+    width: 460px;
+    height: 100vh;
+    align-self: center;
+    border-left: 2px solid #E6E6E6;
+    border-right: 2px solid #E6E6E6;
+}
+
+.result_container {
+    width: 460px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 30px;
+    color: #113cfc;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.score_wrap {
+    height: 50vh;
+    display: flex;
+    font-size: 70px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #113cfc;
+}
+
+.score {
+    color: black;
+}
+
+.next_btn {
+    width: 60%;
+    height: 60px;
+    font-size: 30px;
+    align-self: center;
+    color: white;
+    background-color: #113cfc;
+    border: none;
+    border-radius: 30px;
+}

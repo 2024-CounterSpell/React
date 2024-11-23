@@ -1,13 +1,24 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from 'axios';
 import '../Styles/Camera.css';
+import { useNavigate } from "react-router-dom";
+
+const wordList = ['개발', '디자인', '콩깍지', '영동', '꽁치', '참치', '창살']
 
 const Camera = () => {
+  const navigate = useNavigate();
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
   const [videoBlob, setVideoBlob] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [isStart, setIsStart] = useState(false); 
+  const [word, setWord] = useState();
+
+  useEffect(() => {
+    const word = wordList[Math.floor(Math.random() * wordList.length)];
+    setWord(word);
+  }, []);
 
   useEffect(() => {
     const enableCamera = async () => {
