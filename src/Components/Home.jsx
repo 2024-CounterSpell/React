@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../Styles/Home.css";
 import UserImage from "../assets/imgs/user.png";
 import GlobalFooter from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const UserInfo = () => {
     const [username, setUsername] = useState("Guest");
@@ -31,9 +32,11 @@ const UserInfo = () => {
 };
 
 const Controls = () => {
+    const navigate = useNavigate();
+
   return (
     <div className="control_wrap">
-      <div className="button_container">
+      <div className="button_container" onClick={() => navigate("/review")}>
         <p className="control_content">어제 했었던 공부 복습하기</p>
       </div>
       <div className="button_container">

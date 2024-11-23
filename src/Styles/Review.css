@@ -1,0 +1,51 @@
+.review-wrap {
+    width: 460px;
+    height: 100vh;
+    align-self: center;
+    border-left: 2px solid #E6E6E6;
+    border-right: 2px solid #E6E6E6;
+}
+
+.review-container {
+    width: 460px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0px;
+}
+
+.review-title {
+    font-size: 24px;
+    color: #113cfc;
+    margin-left: -140px;
+}
+
+.reviewWordList {
+    margin-top: 20px;
+    height: 30rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.reviewWord {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 80%;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #EBF3F3;
+    color: #113cfc;
+    font-size: 20px;
+    box-shadow: 2px 2px 2px #E6E6E6;
+}
+
+.reviewWord img {
+    cursor: pointer;
+}

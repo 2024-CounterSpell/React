@@ -7,6 +7,7 @@ import Home from "../assets/imgs/home.png";
 import Book from "../assets/imgs/book.png";
 import BookFill from "../assets/imgs/book_fill.png";
 import Task from "../assets/imgs/task.png";
+import ReviewFill from "../assets/imgs/review_fill.png";
 import User from "../assets/imgs/usericon.png";
 
 // const Footer = () => {
@@ -42,11 +43,32 @@ const GlobalFooter = () => {
     <footer>
       <div className="camera"></div>
       <div className="contents">
-        <img src={pathname === "/" ? HomeFill : Home} alt="Home" onClick={() => navigate("/")}/>
-        <img src={pathname === "/book" ? BookFill : Book} alt="Book" onClick={() => navigate("/book")}/>
-        <img src={CameraImage} alt="Camera" className="cameraIcon" onClick={() => navigate("/camera")}/>
-        <img src={pathname === "/task" ? HomeFill : Task} alt="Task" onClick={() => navigate("/task")}/>
-        <img src={pathname === "/user" ? HomeFill : User} alt="User" onClick={() => navigate("/user")}/>
+        <img
+          src={pathname === "/" ? HomeFill : Home}
+          alt="Home"
+          onClick={() => navigate("/")}
+        />
+        <img
+          src={pathname === "/book" ? BookFill : Book}
+          alt="Book"
+          onClick={() => navigate("/book")}
+        />
+        <img
+          src={CameraImage}
+          alt="Camera"
+          className="cameraIcon"
+          onClick={() => navigate("/camera")}
+        />
+        <img
+          src={pathname === "/review" ? ReviewFill : Task}
+          alt="Task"
+          onClick={() => navigate("/task")}
+        />
+        <img
+          src={pathname === "/user" ? HomeFill : User}
+          alt="User"
+          onClick={() => navigate("/user")}
+        />
       </div>
     </footer>
   );

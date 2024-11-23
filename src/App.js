@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./Styles/init.css";
 import Book from "./Components/Book";
 import Result from "./Components/Result";
+import Review from "./Components/Review";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/camera" element={<Camera />} />
         <Route path="/book" element={<Book />} />
-        <Route path="/result" element={<Result/> } />
+        <Route path="/result" element={<Result />} />
+        <Route path="/review" element={ <Review/>} />
       </Routes>
     </BrowserRouter>
   );

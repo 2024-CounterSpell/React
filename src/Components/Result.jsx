@@ -10,7 +10,7 @@ const Result = () => {
   return (
     <div className="result_wrap">
       <div className="result_container">
-        <h2 className="title">발음 점수를 확인해보세요</h2>
+        <h2 className="result_title">발음 점수를 확인해보세요</h2>
         <div className="score_wrap">
           <p className="score">{score}</p>
           <p>/ 100</p>
