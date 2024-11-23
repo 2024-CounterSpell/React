@@ -1,0 +1,30 @@
+.camera-container {
+  text-align: center;
+}
+
+.camera-video {
+  width: 50%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+.camera-controls {
+  margin-top: 20px;
+}
+
+.record-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.record-button.recording {
+  background-color: #ff4444;
+}
+
+.record-button.not-recording {
+  background-color: #4caf50;
+}
