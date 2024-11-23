@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -38,4 +38,62 @@
 
 .footer-item:hover .footer-text {
   color: #007bff;
+} */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 460px;
+  height: 10vh;
+  display: flex;
+  border-top: 3px solid #9a9a9a61;
+}
+
+.camera {
+  position: fixed;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: white;
+  border-top: 2px solid #E6E6E6;
+  border-right: 2px solid #E6E6E6;
+  border-left: 2px solid #E6E6E6;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraIcon {
+  background-color: #173497;
+  border-radius: 50%;
+  padding: 6px; 
+  transition: .3s;
+  z-index: 100;
+  margin-top: -60px;
+}
+
+footer .contents {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+footer .contents img {
+  width: 40px;
+  height: 40px;
+  transition: .3s;
+}
+
+footer .contents img:hover {
+  transform: scale(1.2);
 }
