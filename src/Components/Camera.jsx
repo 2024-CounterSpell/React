@@ -28,7 +28,7 @@ const Camera = () => {
   useEffect(() => {
     const enableCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
 
@@ -105,7 +105,7 @@ const Camera = () => {
       <div className="camera_container">
         <video ref={videoRef} autoPlay playsInline className="camera-video" />
         <div className="camera-controls" onClick={() => setIsStart(true)}>
-          <div className="camera_shutter"></div>
+          <div className="camera_shutter" onClick={isRecording ? stopRecording : startRecording}></div>
         </div>
         {isStart && <div className="submit" onClick={() => navigate("/result")}>제출</div>}
       </div>
