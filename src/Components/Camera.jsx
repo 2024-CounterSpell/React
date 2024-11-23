@@ -23,7 +23,7 @@ const Camera = () => {
   useEffect(() => {
     const enableCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
 
@@ -65,9 +65,9 @@ const Camera = () => {
         setVideoBlob(blob);
         
         const formData = new FormData();
-        formData.append('video', blob, 'recording.webm');
+        formData.append('file', blob, 'recording.webm');
 
-        const response = await axios.post('http://localhost:3030/upload/video', formData, {
+        const response = await axios.post('http://localhost:8083/api/v1/ai/conversation', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -83,26 +83,22 @@ const Camera = () => {
   };
 
   return (
-    <div className="camera_wrap">
-      {isStart && (
-        <>
-          <div className="help">
-            <p>
-              듣고 있어요. <br /> 말하기를 시작해주세요
-            </p>
-          </div>
-          <div className="word">
-            <p className="word_help">단어 :</p>
-            <p className="pronunciation">{`${word}`}</p>
-          </div>
-        </>
-      )}
-      <div className="camera_container">
-        <video ref={videoRef} autoPlay playsInline className="camera-video" />
-        <div className="camera-controls" onClick={() => setIsStart(true)}>
-          <div className="camera_shutter"></div>
-        </div>
-        {isStart && <div className="submit" onClick={() => navigate("/result")}>제출</div>}
+    <div className="camera-container">
+      <h1>카메라 화면</h1>
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted
+        className="camera-video"
+      />
+      <div className="camera-controls">
+        <button 
+          onClick={isRecording ? stopRecording : startRecording}
+          className={`record-button ${isRecording ? 'recording' : 'not-recording'}`}
+        >
+          {isRecording ? "녹화 중지" : "녹화 시작"}
+        </button>
       </div>
     </div>
   );
