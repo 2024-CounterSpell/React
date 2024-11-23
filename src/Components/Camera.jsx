@@ -104,12 +104,12 @@ const Camera = () => {
           </div>
           <div className="word">
             <p className="word_help">단어 :</p>
-            <p className="pronunciation">{`${word}`}</p>
+            {word && <p className="pronunciation">{word}</p>}
           </div>
         </>
       )}
       <div className="camera_container">
-        <video ref={videoRef} autoPlay playsInline className="camera-video" />
+        <video ref={videoRef} autoPlay playsInline className="camera-video" muted />
         <div className="camera-controls" onClick={() => setIsStart(true)}>
           <div className="camera_shutter" onClick={isRecording ? stopRecording : startRecording}></div>
         </div>
