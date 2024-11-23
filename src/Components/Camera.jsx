@@ -17,11 +17,17 @@ const Camera = () => {
   const [word, setWord] = useState();
 
   useEffect(() => {
-    if (state) {
-      setWord(state);
-    } else {
-      const word = wordList[Math.floor(Math.random() * wordList.length)];
-      setWord(word);
+    if (state === 'jaum') {
+      setWord('ㅈ');
+    } else if (state === 'moum') {
+      setWord('ㅠ');
+    } else if (state === 'word') {
+      if (state) {
+        setWord(state);
+      } else {
+        const word = wordList[Math.floor(Math.random() * wordList.length)];
+        setWord(word);
+      }
     }
   }, []);
 

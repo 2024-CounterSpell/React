@@ -6,6 +6,7 @@ import "./Styles/init.css";
 import Book from "./Components/Book";
 import Result from "./Components/Result";
 import Review from "./Components/Review";
+import Todo from "./Components/Todo";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/camera" element={<Camera />} />
         <Route path="/book" element={<Book />} />
         <Route path="/result" element={<Result />} />
-        <Route path="/review" element={ <Review/>} />
+        <Route path="/review" element={<Review />} />
+        <Route path="/todo" element={<Todo/> } />
       </Routes>
     </BrowserRouter>
   );

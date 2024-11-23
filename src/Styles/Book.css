@@ -57,3 +57,12 @@
     font-weight: 600;
     margin-top: 10px;
 }
+
+.unit {
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #113cfc;
+}

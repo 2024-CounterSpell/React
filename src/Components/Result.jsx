@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../Styles/Result.css";
 import { useNavigate } from "react-router-dom";
 import GlobalFooter from "./Footer";
@@ -6,6 +6,11 @@ import GlobalFooter from "./Footer";
 const Result = () => {
     const navigate = useNavigate();
   const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    const randomScore = Math.floor(Math.random() * 100);
+    setScore(randomScore);
+  }, []);
 
   return (
     <div className="result_wrap">

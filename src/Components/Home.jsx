@@ -39,7 +39,7 @@ const Controls = () => {
       <div className="button_container" onClick={() => navigate("/review")}>
         <p className="control_content">어제 했었던 공부 복습하기</p>
       </div>
-      <div className="button_container">
+      <div className="button_container" onClick={() => navigate("/todo")}>
         <p className="control_content">오늘 할 공부 계획하기</p>
       </div>
       <div className="button_container">

@@ -62,7 +62,7 @@ const GlobalFooter = () => {
         <img
           src={pathname === "/review" ? ReviewFill : Task}
           alt="Task"
-          onClick={() => navigate("/task")}
+          onClick={() => navigate("/review")}
         />
         <img
           src={pathname === "/user" ? HomeFill : User}
