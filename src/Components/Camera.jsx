@@ -1,13 +1,24 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from 'axios';
 import '../Styles/Camera.css';
+import { useNavigate } from "react-router-dom";
+
+const wordList = ['개발', '디자인', '콩깍지', '영동', '꽁치', '참치', '창살']
 
 const Camera = () => {
+  const navigate = useNavigate();
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
   const [videoBlob, setVideoBlob] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [isStart, setIsStart] = useState(false); 
+  const [word, setWord] = useState();
+
+  useEffect(() => {
+    const word = wordList[Math.floor(Math.random() * wordList.length)];
+    setWord(word);
+  }, []);
 
   useEffect(() => {
     const enableCamera = async () => {
@@ -72,21 +83,26 @@ const Camera = () => {
   };
 
   return (
-    <div className="camera-container">
-      <h1>카메라 화면</h1>
-      <video
-        ref={videoRef}
-        autoPlay
-        playsInline
-        className="camera-video"
-      />
-      <div className="camera-controls">
-        <button 
-          onClick={isRecording ? stopRecording : startRecording}
-          className={`record-button ${isRecording ? 'recording' : 'not-recording'}`}
-        >
-          {isRecording ? "녹화 중지" : "녹화 시작"}
-        </button>
+    <div className="camera_wrap">
+      {isStart && (
+        <>
+          <div className="help">
+            <p>
+              듣고 있어요. <br /> 말하기를 시작해주세요
+            </p>
+          </div>
+          <div className="word">
+            <p className="word_help">단어 :</p>
+            <p className="pronunciation">{`${word}`}</p>
+          </div>
+        </>
+      )}
+      <div className="camera_container">
+        <video ref={videoRef} autoPlay playsInline className="camera-video" />
+        <div className="camera-controls" onClick={() => setIsStart(true)}>
+          <div className="camera_shutter"></div>
+        </div>
+        {isStart && <div className="submit" onClick={() => navigate("/result")}>제출</div>}
       </div>
     </div>
   );
