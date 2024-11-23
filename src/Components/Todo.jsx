@@ -15,7 +15,11 @@ const Todo = () => {
       idx: 2,
       todo: "애국가 읽어보기",
       isCheck: false,
-    },
+    }, {
+      idx: 3,
+      todo: "수화 연습하기",
+      isCheck: false
+    }
   ]);
     
     const changeTodo = ({ target }) => {
