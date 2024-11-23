@@ -28,9 +28,7 @@ const Camera = () => {
   useEffect(() => {
     const enableCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-        });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
 
@@ -72,20 +70,16 @@ const Camera = () => {
         setVideoBlob(blob);
 
         const formData = new FormData();
-        formData.append("video", blob, "recording.webm");
+        formData.append('video', blob, 'recording.webm');
 
-        const response = await axios.post(
-          "http://localhost:3030/upload/video",
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-            withCredentials: true,
-          }
-        );
-
-        console.log("업로드 성공:", response.data);
+        const response = await axios.post('http://localhost:3030/upload/video', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true
+        });
+        
+        console.log('업로드 성공:', response.data);
       } catch (error) {
         console.error("업로드 실패:", error);
       }
@@ -113,11 +107,7 @@ const Camera = () => {
         <div className="camera-controls" onClick={() => setIsStart(true)}>
           <div className="camera_shutter"></div>
         </div>
-        {isStart && (
-          <div className="submit" onClick={() => navigate("/result")}>
-            제출
-          </div>
-        )}
+        {isStart && <div className="submit" onClick={() => navigate("/result")}>제출</div>}
       </div>
     </div>
   );
