@@ -12,7 +12,7 @@ const Camera = () => {
   useEffect(() => {
     const enableCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
 
@@ -54,9 +54,9 @@ const Camera = () => {
         setVideoBlob(blob);
         
         const formData = new FormData();
-        formData.append('video', blob, 'recording.webm');
+        formData.append('file', blob, 'recording.webm');
 
-        const response = await axios.post('http://localhost:3030/upload/video', formData, {
+        const response = await axios.post('http://localhost:8083/api/v1/ai/conversation', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -78,6 +78,7 @@ const Camera = () => {
         ref={videoRef}
         autoPlay
         playsInline
+        muted
         className="camera-video"
       />
       <div className="camera-controls">
